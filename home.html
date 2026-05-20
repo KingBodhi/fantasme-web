@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FANTASME+ — Shop</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<!-- ——— NAVIGATION ——— -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">FANTASME<sup>+</sup></a>
+        <ul class="nav-links">
+            <li><a href="#">New</a></li>
+            <li><a href="#">Collections</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="archive.html">Archive</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+        </ul>
+        <div class="nav-util">
+            <a href="#" class="nav-search">Search</a>
+            <a href="#" class="nav-cart">Cart (0)</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ——— HERO ——— -->
+<section class="hero">
+    <canvas id="stars-canvas"></canvas>
+    <div class="hero-atmosphere"></div>
+    <div class="hero-content">
+        <span class="hero-eyebrow">SS 26 — Drop 001</span>
+        <h1 class="hero-title">FANTASME<sup>+</sup></h1>
+        <p class="hero-sub">The paranoia is real.</p>
+        <a href="#drops" class="hero-cta">Shop Now</a>
+    </div>
+    <div class="hero-scroll">
+        <span class="scroll-label">Scroll</span>
+        <span class="scroll-line"></span>
+    </div>
+</section>
+
+<!-- ——— MARQUEE ——— -->
+<div class="marquee-band">
+    <div class="marquee-track">
+        <span>Drop 001 — Now Available</span>
+        <span class="sep">—</span>
+        <span>SS26 Collection</span>
+        <span class="sep">—</span>
+        <span>Free Shipping Over $250</span>
+        <span class="sep">—</span>
+        <span>Limited Edition</span>
+        <span class="sep">—</span>
+        <span>Drop 001 — Now Available</span>
+        <span class="sep">—</span>
+        <span>SS26 Collection</span>
+        <span class="sep">—</span>
+        <span>Free Shipping Over $250</span>
+        <span class="sep">—</span>
+        <span>Limited Edition</span>
+        <span class="sep">—</span>
+        <span>Drop 001 — Now Available</span>
+        <span class="sep">—</span>
+        <span>SS26 Collection</span>
+        <span class="sep">—</span>
+        <span>Free Shipping Over $250</span>
+        <span class="sep">—</span>
+        <span>Limited Edition</span>
+        <span class="sep">—</span>
+    </div>
+</div>
+
+<!-- ——— FEATURED DROP — 2 hero cards ——— -->
+<section class="section drops" id="drops">
+    <div class="section-head">
+        <span class="section-label">SS26 — Drop 001</span>
+        <a href="#shop" class="section-link">Shop All</a>
+    </div>
+    <div class="grid-2">
+
+        <a href="product.html?id=fever" class="card" data-product="fever">
+            <div class="card-img card-img--hero">
+                <img src="assets/img/tee-fever.jpg" alt="Fever — Graphic Tee">
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Fever</span>
+                    <span class="card-sub">Graphic Tee — Washed Slate</span>
+                </div>
+                <span class="card-price">$485</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=black-rite" class="card" data-product="black-rite">
+            <div class="card-img card-img--hero">
+                <img src="assets/img/tee-black-rite.jpg" alt="Black Rite — Graphic Tee">
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Black Rite</span>
+                    <span class="card-sub">Graphic Tee — Washed Black</span>
+                </div>
+                <span class="card-price">$475</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- ——— CATEGORIES ——— -->
+<div class="cat-bar">
+    <div class="cat-inner">
+        <a href="#" class="cat active" data-filter="all">All</a>
+        <a href="#" class="cat" data-filter="tees">Graphic Tees</a>
+        <a href="#" class="cat" data-filter="tops">Tops</a>
+        <a href="#" class="cat" data-filter="outerwear">Outerwear</a>
+        <a href="#" class="cat" data-filter="bottoms">Bottoms</a>
+        <a href="#" class="cat" data-filter="skirts">Skirts</a>
+        <a href="archive.html" class="cat">Archive</a>
+    </div>
+</div>
+
+<!-- ——— SHOP GRID — all 25 ——— -->
+<section class="section shop" id="shop">
+    <div class="section-head">
+        <span class="section-label">Shop</span>
+        <span class="section-count" id="shop-count">25 Items</span>
+    </div>
+    <div class="grid-4" id="shop-grid">
+
+        <!-- GRAPHIC TEES -->
+        <a href="product.html?id=fever" class="card" data-category="tees">
+            <div class="card-img">
+                <img src="assets/img/tee-fever.jpg" alt="Fever">
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Fever</span>
+                    <span class="card-sub">Washed Slate</span>
+                </div>
+                <span class="card-price">$485</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=black-rite" class="card" data-category="tees">
+            <div class="card-img">
+                <img src="assets/img/tee-black-rite.jpg" alt="Black Rite">
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Black Rite</span>
+                    <span class="card-sub">Washed Black</span>
+                </div>
+                <span class="card-price">$475</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=unidentified" class="card" data-category="tees">
+            <div class="card-img">
+                <img src="assets/img/tee-unidentified.jpg" alt="Unidentified">
+                <span class="card-badge">New</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Unidentified</span>
+                    <span class="card-sub">White</span>
+                </div>
+                <span class="card-price">$455</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=the-subject" class="card" data-category="tees">
+            <div class="card-img">
+                <img src="assets/img/tee-subject.jpg" alt="The Subject">
+                <span class="card-badge">New</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">The Subject</span>
+                    <span class="card-sub">Washed Plum</span>
+                </div>
+                <span class="card-price">$495</span>
+            </div>
+        </a>
+
+        <!-- TOPS -->
+        <a href="product.html?id=polo-marilyn" class="card" data-category="tops">
+            <div class="card-img">
+                <img src="assets/img/polo-marilyn.jpg" alt="The Icon">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">The Icon</span>
+                    <span class="card-sub">Midnight Black</span>
+                </div>
+                <span class="card-price">$625</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=shirt-collage" class="card" data-category="tops">
+            <div class="card-img">
+                <img src="assets/img/shirt-collage.jpg" alt="Archive I">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">World Order</span>
+                    <span class="card-sub">Optical White</span>
+                </div>
+                <span class="card-price">$625</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=shirt-tiger" class="card" data-category="tops">
+            <div class="card-img">
+                <img src="assets/img/shirt-tiger.jpg" alt="Wild Type">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Billie</span>
+                    <span class="card-sub">Blush / Tiger</span>
+                </div>
+                <span class="card-price">$615</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=shirt-cream-bow" class="card" data-category="tops">
+            <div class="card-img">
+                <img src="assets/img/shirt-cream-bow.jpg" alt="Curtain Call">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Curtain Call</span>
+                    <span class="card-sub">Ivory / Black</span>
+                </div>
+                <span class="card-price">$645</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=shirt-black-bow" class="card" data-category="tops">
+            <div class="card-img">
+                <img src="assets/img/shirt-black-bow.jpg" alt="Séance">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Séance</span>
+                    <span class="card-sub">Noir / Velvet</span>
+                </div>
+                <span class="card-price">$665</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=top-corset" class="card" data-category="tops">
+            <div class="card-img">
+                <img src="assets/img/top-corset.webp" alt="The Grip">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">The Grip</span>
+                    <span class="card-sub">Structured Black</span>
+                </div>
+                <span class="card-price">$675</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=vest-blood" class="card" data-category="tops">
+            <div class="card-img">
+                <img src="assets/img/vest-blood.jpg" alt="Red Mist">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Red Mist</span>
+                    <span class="card-sub">Ivory / Crimson</span>
+                </div>
+                <span class="card-price">$595</span>
+            </div>
+        </a>
+
+        <!-- OUTERWEAR -->
+        <a href="product.html?id=jacket-cargo" class="card" data-category="outerwear">
+            <div class="card-img">
+                <img src="assets/img/jacket-cargo.jpg" alt="Signal">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Signal</span>
+                    <span class="card-sub">Technical Bomber</span>
+                </div>
+                <span class="card-price">$1,650</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=blazer-glitter" class="card" data-category="outerwear">
+            <div class="card-img">
+                <img src="assets/img/blazer-glitter.jpg" alt="Constellation">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Constellation</span>
+                    <span class="card-sub">Black Lurex</span>
+                </div>
+                <span class="card-price">$2,200</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=blazer-zip" class="card" data-category="outerwear">
+            <div class="card-img">
+                <img src="assets/img/blazer-zip.jpg" alt="The Descent">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">The Descent</span>
+                    <span class="card-sub">Cropped Blazer</span>
+                </div>
+                <span class="card-price">$2,450</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=jacket-leather" class="card" data-category="outerwear">
+            <div class="card-img">
+                <img src="assets/img/jacket-leather.jpg" alt="Second Skin">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Second Skin</span>
+                    <span class="card-sub">Distressed Leather</span>
+                </div>
+                <span class="card-price">$4,200</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=coat-chain" class="card" data-category="outerwear">
+            <div class="card-img">
+                <img src="assets/img/coat-chain.jpg" alt="The Colonel">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">The Colonel</span>
+                    <span class="card-sub">Navy / Gold Chain</span>
+                </div>
+                <span class="card-price">$5,800</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=coat-fur" class="card" data-category="outerwear">
+            <div class="card-img">
+                <img src="assets/img/coat-fur.jpg" alt="Witness">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Witness</span>
+                    <span class="card-sub">Sable / Cream</span>
+                </div>
+                <span class="card-price">$8,500</span>
+            </div>
+        </a>
+
+        <!-- BOTTOMS -->
+        <a href="product.html?id=jeans-wax" class="card" data-category="bottoms">
+            <div class="card-img">
+                <img src="assets/img/jeans-wax.jpg" alt="Lacquer">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Vulture Waxed Denim</span>
+                    <span class="card-sub">Waxed Black</span>
+                </div>
+                <span class="card-price">$825</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=jeans-straight" class="card" data-category="bottoms">
+            <div class="card-img">
+                <img src="assets/img/jeans-straight.webp" alt="Blueprint">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Blueprint Denim</span>
+                    <span class="card-sub">Medium Wash</span>
+                </div>
+                <span class="card-price">$795</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=pants-flare" class="card" data-category="bottoms">
+            <div class="card-img">
+                <img src="assets/img/pants-flare.jpg" alt="Frequency">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Flare Denim</span>
+                    <span class="card-sub">Black Flare</span>
+                </div>
+                <span class="card-price">$815</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=pants-leather" class="card" data-category="bottoms">
+            <div class="card-img">
+                <img src="assets/img/pants-leather.jpg" alt="Phantom Leg">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Phantom Leather</span>
+                    <span class="card-sub">Leather Flare</span>
+                </div>
+                <span class="card-price">$1,850</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=pants-silver" class="card" data-category="bottoms">
+            <div class="card-img">
+                <img src="assets/img/pants-silver.jpg" alt="Static">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Static</span>
+                    <span class="card-sub">Silver Metallic</span>
+                </div>
+                <span class="card-price">$1,450</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=pants-teal" class="card" data-category="bottoms">
+            <div class="card-img">
+                <img src="assets/img/pants-teal.jpg" alt="Transmission">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Disco Leather</span>
+                    <span class="card-sub">Ice Blue Leather</span>
+                </div>
+                <span class="card-price">$1,950</span>
+            </div>
+        </a>
+
+        <!-- SKIRTS -->
+        <a href="product.html?id=skirt-pleated" class="card" data-category="skirts">
+            <div class="card-img">
+                <img src="assets/img/skirt-pleated.jpg" alt="The Formation">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">The Formation</span>
+                    <span class="card-sub">Pleated Mini</span>
+                </div>
+                <span class="card-price">$595</span>
+            </div>
+        </a>
+
+        <a href="product.html?id=skirt-velvet" class="card" data-category="skirts">
+            <div class="card-img">
+                <img src="assets/img/skirt-velvet.jpg" alt="Dark Matter">
+                <span class="card-badge">Limited</span>
+            </div>
+            <div class="card-foot">
+                <div class="card-meta">
+                    <span class="card-name">Dark Matter</span>
+                    <span class="card-sub">Navy / Burgundy</span>
+                </div>
+                <span class="card-price">$785</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- ——— EDITORIAL — Black Rite as hero image ——— -->
+<section class="editorial">
+    <div class="editorial-split">
+        <div class="editorial-visual">
+            <img src="assets/img/tee-black-rite.jpg" alt="Black Rite" class="editorial-photo">
+            <div class="editorial-nebula"></div>
+        </div>
+        <div class="editorial-copy">
+            <span class="editorial-tag">The World</span>
+            <h2 class="editorial-heading">Beyond<br>the Surface</h2>
+            <p class="editorial-body">Each piece is excavated from forgotten record — newspaper archives, classified footage, redacted testimony. We wear what they buried.</p>
+            <a href="#" class="editorial-cta">Read More</a>
+        </div>
+    </div>
+</section>
+
+<!-- ——— FOOTER ——— -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="footer-logo">FANTASME<sup>+</sup></span>
+            <span class="footer-copy">© 2026 All rights reserved</span>
+        </div>
+        <div class="footer-cols">
+            <div class="footer-col">
+                <span class="col-head">Shop</span>
+                <a href="#">New Arrivals</a>
+                <a href="#">Collections</a>
+                <a href="#">Archive</a>
+                <a href="#">All Products</a>
+            </div>
+            <div class="footer-col">
+                <span class="col-head">Info</span>
+                <a href="#">About</a>
+                <a href="#">Stockists</a>
+                <a href="#">Shipping & Returns</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-col">
+                <span class="col-head">Follow</span>
+                <a href="#">Instagram</a>
+                <a href="#">Newsletter</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/stars.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

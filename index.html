@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FANTASME+</title>
+    <link rel="stylesheet" href="css/entry.css">
+</head>
+<body>
+
+    <canvas id="stars-canvas"></canvas>
+
+    <main class="scene">
+        <div class="portal-wrap" id="portal-wrap">
+            <!-- Gravitational pulse rings — energy emanating outward -->
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+
+            <div class="portal-outer-halo"></div>
+            <div class="portal-mid-halo"></div>
+
+            <div class="portal" id="portal">
+                <div class="portal-layer portal-layer--vortex"></div>
+                <div class="portal-layer portal-layer--glow"></div>
+                <div class="portal-layer portal-layer--core"></div>
+                <div class="portal-layer portal-layer--center"></div>
+                <div class="portal-layer portal-layer--flicker"></div>
+            </div>
+        </div>
+
+        <a href="home.html" class="enter-link" id="enter-link">
+            <span class="enter-text">ENTER</span>
+            <span class="enter-rule"></span>
+        </a>
+    </main>
+
+    <!-- Pink lookbook orb — fixed lower-left -->
+    <a href="lookbook.html" class="pink-orb-link" id="pink-orb-link">
+        <div class="pink-orb-container">
+            <div class="pink-pulse-ring"></div>
+            <div class="pink-pulse-ring"></div>
+            <div class="pink-pulse-ring"></div>
+            <div class="pink-orb" id="pink-orb">
+                <div class="pink-layer pink-layer--glow"></div>
+                <div class="pink-layer pink-layer--core"></div>
+                <div class="pink-layer pink-layer--center"></div>
+                <div class="pink-layer pink-layer--flicker"></div>
+            </div>
+        </div>
+        <span class="pink-orb-label">Lookbook</span>
+    </a>
+
+    <!-- Green waitlist orb — fixed lower-right -->
+    <a href="waitlist.html" class="green-orb-link" id="green-orb-link">
+        <div class="green-orb-container">
+            <div class="green-pulse-ring"></div>
+            <div class="green-pulse-ring"></div>
+            <div class="green-pulse-ring"></div>
+            <div class="green-orb" id="green-orb">
+                <div class="green-layer green-layer--glow"></div>
+                <div class="green-layer green-layer--core"></div>
+                <div class="green-layer green-layer--center"></div>
+                <div class="green-layer green-layer--flicker"></div>
+            </div>
+        </div>
+        <span class="green-orb-label">Waitlist</span>
+    </a>
+
+    <div class="brand-mark">FANTASME<sup>+</sup></div>
+
+    <script src="js/stars.js"></script>
+    <script src="js/entry.js"></script>
+</body>
+</html>

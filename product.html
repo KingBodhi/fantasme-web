@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FANTASME+</title>
+    <link rel="stylesheet" href="css/product.css">
+</head>
+<body data-page="product">
+
+<!-- ——— NAVIGATION ——— -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="home.html" class="nav-brand" data-portal-back>FANTASME<sup>+</sup></a>
+        <ul class="nav-links">
+            <li><a href="home.html" data-portal-back>New</a></li>
+            <li><a href="home.html" data-portal-back>Collections</a></li>
+            <li><a href="home.html" data-portal-back>Shop</a></li>
+            <li><a href="#">World</a></li>
+        </ul>
+        <div class="nav-util">
+            <a href="#">Search</a>
+            <a href="#" id="nav-cart">Cart (0)</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ——— PRODUCT LAYOUT ——— -->
+<main class="product-layout">
+
+    <!-- LEFT — Sticky image -->
+    <div class="product-img-col">
+        <div class="product-img-wrap">
+            <img id="product-img" src="" alt="" loading="eager">
+        </div>
+        <div class="product-img-meta">
+            <span id="img-badge" class="img-badge hidden"></span>
+            <span class="img-count">1 / 1</span>
+        </div>
+    </div>
+
+    <!-- RIGHT — Scrollable info -->
+    <div class="product-info-col">
+        <div class="product-info-inner">
+
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="home.html" class="breadcrumb-back" data-portal-back>← Shop</a>
+                <span class="breadcrumb-sep">/</span>
+                <span id="breadcrumb-name" class="breadcrumb-current"></span>
+            </nav>
+
+            <!-- Header -->
+            <header class="product-header">
+                <p class="product-collection" id="product-collection"></p>
+                <h1 class="product-name" id="product-name"></h1>
+                <p class="product-colorway" id="product-colorway"></p>
+                <p class="product-price" id="product-price"></p>
+            </header>
+
+            <div class="rule"></div>
+
+            <!-- Bio -->
+            <p class="product-bio" id="product-bio"></p>
+
+            <div class="rule"></div>
+
+            <!-- Sizing -->
+            <div class="product-sizing">
+                <div class="sizing-head">
+                    <span class="sizing-label">Select Size</span>
+                    <a href="#" class="size-guide-link">Size Guide</a>
+                </div>
+                <div class="size-grid" id="size-grid"></div>
+            </div>
+
+            <!-- CTA -->
+            <div class="product-cta">
+                <button class="btn-add-to-bag" id="btn-add">Add to Bag</button>
+                <button class="btn-wishlist">Save to Wishlist</button>
+            </div>
+
+            <div class="rule"></div>
+
+            <!-- Details accordions -->
+            <div class="accordions" id="accordions"></div>
+
+            <div class="rule"></div>
+
+            <!-- Page foot -->
+            <div class="product-page-foot">
+                <span class="foot-brand">FANTASME<sup>+</sup></span>
+                <span class="foot-drop" id="foot-drop"></span>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<script src="js/product.js"></script>
+</body>
+</html>

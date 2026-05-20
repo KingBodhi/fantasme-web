@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FANTASME+ — Waitlist</title>
+    <link rel="stylesheet" href="css/waitlist.css">
+</head>
+<body>
+
+    <canvas id="stars-canvas"></canvas>
+
+    <!-- Top-left brand mark → back to entry -->
+    <a href="index.html" class="wl-brand">FANTASME<sup>+</sup></a>
+
+    <main class="wl-main">
+
+        <!-- Form state -->
+        <div class="wl-panel" id="wl-panel">
+
+            <div class="wl-head">
+                <span class="wl-eyebrow">SS26 — Drop 001</span>
+                <h1 class="wl-title">Join the Waitlist</h1>
+                <p class="wl-sub">First access. No noise. We reach out when it matters.</p>
+            </div>
+
+            <form class="wl-form" id="wl-form" novalidate>
+
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <input class="form-input" type="text" id="first-name"
+                            placeholder="First Name" autocomplete="given-name" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-input" type="text" id="last-name"
+                            placeholder="Last Name" autocomplete="family-name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-input" type="email" id="email"
+                        placeholder="Email Address" autocomplete="email" required>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-input" type="tel" id="phone"
+                        placeholder="Phone Number (optional)" autocomplete="tel">
+                </div>
+
+                <label class="form-check">
+                    <input type="checkbox" id="agree" required>
+                    <span class="check-box"></span>
+                    <span class="check-label">I agree to receive updates, new arrivals, exclusive
+                        drops, and promotional messages from Fantasme+. I understand I can
+                        opt out at any time.</span>
+                </label>
+
+                <button type="submit" class="wl-submit" id="wl-submit">
+                    <span class="submit-text">Join</span>
+                    <span class="submit-rule"></span>
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Success state — hidden until submit -->
+        <div class="wl-success" id="wl-success" aria-live="polite">
+            <div class="success-mark">✦</div>
+            <h2 class="success-title">You're in.</h2>
+            <p class="success-sub">We'll be in touch before the next drop.<br>Stay close.</p>
+            <a href="index.html" class="success-back">← Return</a>
+        </div>
+
+    </main>
+
+    <script src="js/stars.js"></script>
+    <script src="js/waitlist.js"></script>
+</body>
+</html>
