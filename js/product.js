@@ -465,7 +465,7 @@ const PRODUCTS = {
     },
 
     'jacket-leather': {
-        name: 'Second Skin',
+        name: 'Second Skin Leather',
         collection: 'SS26 — Drop 001',
         colorway: 'Leather Bomber — Distressed Black',
         price: '$4,200',
@@ -519,7 +519,7 @@ const PRODUCTS = {
     },
 
     'coat-fur': {
-        name: 'Witness',
+        name: 'Yogi Shearling Coat',
         collection: 'SS26 — Drop 001',
         colorway: 'Fur Coat — Sable / Cream',
         price: '$8,500',
@@ -578,7 +578,7 @@ const PRODUCTS = {
         colorway: 'Straight Jeans — Medium Wash',
         price: '$795',
         badge: 'Limited',
-        img: 'assets/img/jeans-straight.jpg',
+        img: 'assets/img/jeans-straight.webp',
         bio: 'The original document. Medium wash, straight cut — everything that came after was built on this foundation.',
         details: [
             {
@@ -651,7 +651,7 @@ const PRODUCTS = {
     },
 
     'pants-silver': {
-        name: 'Static',
+        name: 'Static Trousers',
         collection: 'SS26 — Drop 001',
         colorway: 'Wide-Leg Pants — Silver Metallic',
         price: '$1,450',
@@ -800,11 +800,16 @@ const PRODUCTS = {
         const btn = document.createElement('button');
         btn.className = 'size-btn' + (i === 2 ? ' selected' : '');
         btn.textContent = size;
+        btn.setAttribute('aria-pressed', i === 2 ? 'true' : 'false');
         if (i === 2) selectedSize = size;
 
         btn.addEventListener('click', () => {
-            grid.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+            grid.querySelectorAll('.size-btn').forEach(b => {
+                b.classList.remove('selected');
+                b.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('selected');
+            btn.setAttribute('aria-pressed', 'true');
             selectedSize = size;
         });
 
@@ -838,7 +843,7 @@ const PRODUCTS = {
             </div>
         `;
         el.addEventListener('toggle', () => {
-            el.querySelector('.accordion-icon').textContent = el.open ? '+' : '+';
+            el.querySelector('.accordion-icon').textContent = el.open ? '×' : '+';
         });
         container.appendChild(el);
     });

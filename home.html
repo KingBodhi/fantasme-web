@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FANTASME+ — Shop</title>
-    <link rel="stylesheet" href="css/home.css">
+    <meta name="description" content="FANTASME+ SS26 Drop 001. Limited edition archive-inspired clothing. Shop graphic tees, outerwear, and bottoms.">
+    <meta property="og:title" content="FANTASME+ — Shop">
+    <meta property="og:description" content="SS26 Drop 001. Limited edition. The paranoia is real.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="css/home.css?v=3">
+    <style>
+        .hero { background: #fff !important; }
+        #stars-canvas, .hero-atmosphere,
+        .hero-title::before, .hero-content::before,
+        .hero-content::after { display: none !important; }
+        .hero-title {
+            color: #0a0a0a !important;
+            text-shadow: none !important;
+            animation: hero-focus-in 1.8s cubic-bezier(0.16,1,0.3,1) 0.05s both !important;
+        }
+        @keyframes hero-focus-in {
+            from { filter: blur(14px); }
+            to   { filter: blur(0); }
+        }
+        .hero-eyebrow { color: rgba(10,10,10,0.36) !important; }
+        .hero-sub { color: rgba(10,10,10,0.46) !important; text-shadow: none !important; }
+        .hero-cta { color: #0a0a0a !important; border-bottom-color: rgba(10,10,10,0.16) !important; }
+        .scroll-label { color: rgba(10,10,10,0.26) !important; }
+        .scroll-line { background: linear-gradient(to bottom,rgba(0,0,0,0.12),transparent) !important; }
+        .hero-to-dark { height: 32vh; min-height: 100px; background: linear-gradient(to bottom,#fff,#04040c); }
+        .nav.reveal-mode .nav-brand,
+        .nav.reveal-mode .nav-links a,
+        .nav.reveal-mode .nav-util a { color: rgba(10,10,10,0.5) !important; }
+        .nav.reveal-mode .nav-hamburger span { background: rgba(10,10,10,0.6) !important; }
+    </style>
 </head>
-<body>
+<body style="opacity:0">
+<div id="entry-veil" style="position:fixed;inset:0;background:#fff;z-index:9999;pointer-events:none;"></div>
 
 <!-- ——— NAVIGATION ——— -->
 <nav class="nav" id="nav">
@@ -23,8 +53,25 @@
             <a href="#" class="nav-search">Search</a>
             <a href="#" class="nav-cart">Cart (0)</a>
         </div>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </nav>
+
+<!-- ——— MOBILE NAV DRAWER ——— -->
+<div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <div class="nav-mobile-inner">
+        <a href="#">New</a>
+        <a href="#">Collections</a>
+        <a href="#shop">Shop</a>
+        <a href="archive.html">Archive</a>
+        <a href="lookbook.html">Lookbook</a>
+        <div class="nav-mobile-divider"></div>
+        <a href="#">Search</a>
+        <a href="#">Cart (0)</a>
+    </div>
+</div>
 
 <!-- ——— HERO ——— -->
 <section class="hero">
@@ -41,6 +88,8 @@
         <span class="scroll-line"></span>
     </div>
 </section>
+
+<div class="hero-to-dark"></div>
 
 <!-- ——— MARQUEE ——— -->
 <div class="marquee-band">
@@ -72,43 +121,6 @@
     </div>
 </div>
 
-<!-- ——— FEATURED DROP — 2 hero cards ——— -->
-<section class="section drops" id="drops">
-    <div class="section-head">
-        <span class="section-label">SS26 — Drop 001</span>
-        <a href="#shop" class="section-link">Shop All</a>
-    </div>
-    <div class="grid-2">
-
-        <a href="product.html?id=fever" class="card" data-product="fever">
-            <div class="card-img card-img--hero">
-                <img src="assets/img/tee-fever.jpg" alt="Fever — Graphic Tee">
-            </div>
-            <div class="card-foot">
-                <div class="card-meta">
-                    <span class="card-name">Fever</span>
-                    <span class="card-sub">Graphic Tee — Washed Slate</span>
-                </div>
-                <span class="card-price">$485</span>
-            </div>
-        </a>
-
-        <a href="product.html?id=black-rite" class="card" data-product="black-rite">
-            <div class="card-img card-img--hero">
-                <img src="assets/img/tee-black-rite.jpg" alt="Black Rite — Graphic Tee">
-            </div>
-            <div class="card-foot">
-                <div class="card-meta">
-                    <span class="card-name">Black Rite</span>
-                    <span class="card-sub">Graphic Tee — Washed Black</span>
-                </div>
-                <span class="card-price">$475</span>
-            </div>
-        </a>
-
-    </div>
-</section>
-
 <!-- ——— CATEGORIES ——— -->
 <div class="cat-bar">
     <div class="cat-inner">
@@ -133,7 +145,7 @@
         <!-- GRAPHIC TEES -->
         <a href="product.html?id=fever" class="card" data-category="tees">
             <div class="card-img">
-                <img src="assets/img/tee-fever.jpg" alt="Fever">
+                <img src="assets/img/tee-fever.jpg" alt="Fever" loading="lazy">
             </div>
             <div class="card-foot">
                 <div class="card-meta">
@@ -146,7 +158,7 @@
 
         <a href="product.html?id=black-rite" class="card" data-category="tees">
             <div class="card-img">
-                <img src="assets/img/tee-black-rite.jpg" alt="Black Rite">
+                <img src="assets/img/tee-black-rite.jpg" alt="Black Rite" loading="lazy">
             </div>
             <div class="card-foot">
                 <div class="card-meta">
@@ -159,7 +171,7 @@
 
         <a href="product.html?id=unidentified" class="card" data-category="tees">
             <div class="card-img">
-                <img src="assets/img/tee-unidentified.jpg" alt="Unidentified">
+                <img src="assets/img/tee-unidentified.jpg" alt="Unidentified" loading="lazy">
                 <span class="card-badge">New</span>
             </div>
             <div class="card-foot">
@@ -173,7 +185,7 @@
 
         <a href="product.html?id=the-subject" class="card" data-category="tees">
             <div class="card-img">
-                <img src="assets/img/tee-subject.jpg" alt="The Subject">
+                <img src="assets/img/tee-subject.jpg" alt="The Subject" loading="lazy">
                 <span class="card-badge">New</span>
             </div>
             <div class="card-foot">
@@ -188,7 +200,7 @@
         <!-- TOPS -->
         <a href="product.html?id=polo-marilyn" class="card" data-category="tops">
             <div class="card-img">
-                <img src="assets/img/polo-marilyn.jpg" alt="The Icon">
+                <img src="assets/img/polo-marilyn.jpg" alt="The Icon" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -202,7 +214,7 @@
 
         <a href="product.html?id=shirt-collage" class="card" data-category="tops">
             <div class="card-img">
-                <img src="assets/img/shirt-collage.jpg" alt="Archive I">
+                <img src="assets/img/shirt-collage.jpg" alt="Archive I" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -216,7 +228,7 @@
 
         <a href="product.html?id=shirt-tiger" class="card" data-category="tops">
             <div class="card-img">
-                <img src="assets/img/shirt-tiger.jpg" alt="Wild Type">
+                <img src="assets/img/shirt-tiger.jpg" alt="Wild Type" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -230,7 +242,7 @@
 
         <a href="product.html?id=shirt-cream-bow" class="card" data-category="tops">
             <div class="card-img">
-                <img src="assets/img/shirt-cream-bow.jpg" alt="Curtain Call">
+                <img src="assets/img/shirt-cream-bow.jpg" alt="Curtain Call" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -244,7 +256,7 @@
 
         <a href="product.html?id=shirt-black-bow" class="card" data-category="tops">
             <div class="card-img">
-                <img src="assets/img/shirt-black-bow.jpg" alt="Séance">
+                <img src="assets/img/shirt-black-bow.jpg" alt="Séance" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -258,7 +270,7 @@
 
         <a href="product.html?id=top-corset" class="card" data-category="tops">
             <div class="card-img">
-                <img src="assets/img/top-corset.webp" alt="The Grip">
+                <img src="assets/img/top-corset.webp" alt="The Grip" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -272,7 +284,7 @@
 
         <a href="product.html?id=vest-blood" class="card" data-category="tops">
             <div class="card-img">
-                <img src="assets/img/vest-blood.jpg" alt="Red Mist">
+                <img src="assets/img/vest-blood.jpg" alt="Red Mist" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -287,7 +299,7 @@
         <!-- OUTERWEAR -->
         <a href="product.html?id=jacket-cargo" class="card" data-category="outerwear">
             <div class="card-img">
-                <img src="assets/img/jacket-cargo.jpg" alt="Signal">
+                <img src="assets/img/jacket-cargo.jpg" alt="Signal" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -301,7 +313,7 @@
 
         <a href="product.html?id=blazer-glitter" class="card" data-category="outerwear">
             <div class="card-img">
-                <img src="assets/img/blazer-glitter.jpg" alt="Constellation">
+                <img src="assets/img/blazer-glitter.jpg" alt="Constellation" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -315,7 +327,7 @@
 
         <a href="product.html?id=blazer-zip" class="card" data-category="outerwear">
             <div class="card-img">
-                <img src="assets/img/blazer-zip.jpg" alt="The Descent">
+                <img src="assets/img/blazer-zip.jpg" alt="The Descent" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -329,12 +341,12 @@
 
         <a href="product.html?id=jacket-leather" class="card" data-category="outerwear">
             <div class="card-img">
-                <img src="assets/img/jacket-leather.jpg" alt="Second Skin">
+                <img src="assets/img/jacket-leather.jpg" alt="Second Skin Leather" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
                 <div class="card-meta">
-                    <span class="card-name">Second Skin</span>
+                    <span class="card-name">Second Skin Leather</span>
                     <span class="card-sub">Distressed Leather</span>
                 </div>
                 <span class="card-price">$4,200</span>
@@ -343,7 +355,7 @@
 
         <a href="product.html?id=coat-chain" class="card" data-category="outerwear">
             <div class="card-img">
-                <img src="assets/img/coat-chain.jpg" alt="The Colonel">
+                <img src="assets/img/coat-chain.jpg" alt="The Colonel" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -357,12 +369,12 @@
 
         <a href="product.html?id=coat-fur" class="card" data-category="outerwear">
             <div class="card-img">
-                <img src="assets/img/coat-fur.jpg" alt="Witness">
+                <img src="assets/img/coat-fur.jpg" alt="Yogi Shearling Coat" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
                 <div class="card-meta">
-                    <span class="card-name">Witness</span>
+                    <span class="card-name">Yogi Shearling Coat</span>
                     <span class="card-sub">Sable / Cream</span>
                 </div>
                 <span class="card-price">$8,500</span>
@@ -372,7 +384,7 @@
         <!-- BOTTOMS -->
         <a href="product.html?id=jeans-wax" class="card" data-category="bottoms">
             <div class="card-img">
-                <img src="assets/img/jeans-wax.jpg" alt="Lacquer">
+                <img src="assets/img/jeans-wax.jpg" alt="Lacquer" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -386,7 +398,7 @@
 
         <a href="product.html?id=jeans-straight" class="card" data-category="bottoms">
             <div class="card-img">
-                <img src="assets/img/jeans-straight.webp" alt="Blueprint">
+                <img src="assets/img/jeans-straight.webp" alt="Blueprint" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -400,7 +412,7 @@
 
         <a href="product.html?id=pants-flare" class="card" data-category="bottoms">
             <div class="card-img">
-                <img src="assets/img/pants-flare.jpg" alt="Frequency">
+                <img src="assets/img/pants-flare.jpg" alt="Frequency" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -414,7 +426,7 @@
 
         <a href="product.html?id=pants-leather" class="card" data-category="bottoms">
             <div class="card-img">
-                <img src="assets/img/pants-leather.jpg" alt="Phantom Leg">
+                <img src="assets/img/pants-leather.jpg" alt="Phantom Leg" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -428,12 +440,12 @@
 
         <a href="product.html?id=pants-silver" class="card" data-category="bottoms">
             <div class="card-img">
-                <img src="assets/img/pants-silver.jpg" alt="Static">
+                <img src="assets/img/pants-silver.jpg" alt="Static Trousers" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
                 <div class="card-meta">
-                    <span class="card-name">Static</span>
+                    <span class="card-name">Static Trousers</span>
                     <span class="card-sub">Silver Metallic</span>
                 </div>
                 <span class="card-price">$1,450</span>
@@ -442,7 +454,7 @@
 
         <a href="product.html?id=pants-teal" class="card" data-category="bottoms">
             <div class="card-img">
-                <img src="assets/img/pants-teal.jpg" alt="Transmission">
+                <img src="assets/img/pants-teal.jpg" alt="Transmission" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -457,7 +469,7 @@
         <!-- SKIRTS -->
         <a href="product.html?id=skirt-pleated" class="card" data-category="skirts">
             <div class="card-img">
-                <img src="assets/img/skirt-pleated.jpg" alt="The Formation">
+                <img src="assets/img/skirt-pleated.jpg" alt="The Formation" loading="lazy" class="img--fit">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -471,7 +483,7 @@
 
         <a href="product.html?id=skirt-velvet" class="card" data-category="skirts">
             <div class="card-img">
-                <img src="assets/img/skirt-velvet.jpg" alt="Dark Matter">
+                <img src="assets/img/skirt-velvet.jpg" alt="Dark Matter" loading="lazy">
                 <span class="card-badge">Limited</span>
             </div>
             <div class="card-foot">
@@ -490,7 +502,7 @@
 <section class="editorial">
     <div class="editorial-split">
         <div class="editorial-visual">
-            <img src="assets/img/tee-black-rite.jpg" alt="Black Rite" class="editorial-photo">
+            <img src="assets/img/tee-black-rite.jpg" alt="Black Rite" class="editorial-photo" loading="lazy">
             <div class="editorial-nebula"></div>
         </div>
         <div class="editorial-copy">
@@ -533,7 +545,7 @@
     </div>
 </footer>
 
-<script src="js/stars.js"></script>
-<script src="js/home.js"></script>
+<script src="js/stars.js?v=6"></script>
+<script src="js/home.js?v=6"></script>
 </body>
 </html>

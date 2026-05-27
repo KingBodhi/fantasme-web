@@ -227,11 +227,29 @@
             nextShootTime = t + (shootingStars.length === 0 ? 800 : 1500) + Math.random() * 2500;
         }
         drawShootingStars();
+    }
 
-        requestAnimationFrame(draw);
+    /* ——— PAGE VISIBILITY — pause loop when tab is hidden ——— */
+    let animId;
+    let paused = false;
+
+    function loop(t) {
+        if (!paused) draw(t);
+        animId = requestAnimationFrame(loop);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        paused = document.hidden;
+    });
+
+    /* ——— DEBOUNCED RESIZE ——— */
+    let resizeTimer;
+    function onResize() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(resize, 150);
     }
 
     resize();
-    window.addEventListener('resize', resize);
-    requestAnimationFrame(draw);
+    window.addEventListener('resize', onResize);
+    animId = requestAnimationFrame(loop);
 })();

@@ -134,7 +134,7 @@ a {
     opacity: 0.55;
 }
 
-/* Nebula atmosphere — subtle, not garish */
+/* Nebula atmosphere — breathes slowly so the hero feels alive */
 .hero-atmosphere {
     position: absolute;
     inset: 0;
@@ -144,6 +144,12 @@ a {
         radial-gradient(ellipse at 65% 35%, rgba(70, 35, 150, 0.14) 0%, transparent 52%),
         radial-gradient(ellipse at 15% 65%, rgba(35, 15, 90, 0.09) 0%, transparent 44%),
         radial-gradient(ellipse at 50% 100%, rgba(10, 5, 40, 0.5) 0%, transparent 55%);
+    animation: atmos-drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes atmos-drift {
+    from { opacity: 0.72; transform: scale(1.00); }
+    to   { opacity: 1.00; transform: scale(1.06); }
 }
 
 .hero-content {
@@ -384,6 +390,12 @@ a {
     object-position: center 8%;
     display: block;
     transition: transform 0.9s cubic-bezier(0.25, 0, 0.08, 1);
+}
+
+/* Square or wide images that shouldn't be cropped — shows full garment */
+.card-img img.img--fit {
+    object-fit: contain;
+    object-position: center center;
 }
 
 .card:hover .card-img img {
@@ -710,6 +722,225 @@ a {
 }
 
 /* ══════════════════════════════════════════
+   HAMBURGER + MOBILE NAV
+══════════════════════════════════════════ */
+
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    margin: -8px;
+    background: none;
+    border: none;
+    flex-shrink: 0;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: rgba(237, 237, 245, 0.7);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.nav-mobile {
+    position: fixed;
+    top: 58px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: rgba(4, 4, 12, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.42s cubic-bezier(0.25, 0, 0.1, 1);
+}
+
+.nav-mobile.open { max-height: 400px; }
+
+.nav-mobile-inner {
+    padding: 16px 20px 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-mobile a {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--faint);
+    transition: color 0.25s ease;
+}
+
+.nav-mobile a:last-child { border-bottom: none; }
+.nav-mobile a:active { color: var(--text); }
+
+.nav-mobile-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 8px 0;
+}
+
+/* ══════════════════════════════════════════
+   ATMOSPHERE — LIVING GLOW SYSTEM
+══════════════════════════════════════════ */
+
+/* Nav brand — ambient violet presence, intensifies on hover */
+.nav-brand {
+    text-shadow: 0 0 20px rgba(140, 88, 238, 0.16);
+    transition: text-shadow 0.5s ease;
+}
+
+.nav-brand:hover {
+    text-shadow: 0 0 28px rgba(165, 112, 255, 0.34), 0 0 58px rgba(120, 68, 210, 0.13);
+}
+
+/* Hero title — 3D extrusion depth + radiant glow; tilt driven by JS */
+.hero-title {
+    position: relative;
+    will-change: transform;
+    text-shadow:
+        0  2px 0    rgba(138,  82, 255, 0.82),
+        0  4px 0    rgba(122,  68, 245, 0.68),
+        0  6px 0    rgba(106,  54, 230, 0.54),
+        0  8px 0    rgba( 90,  42, 212, 0.40),
+        0 10px 0    rgba( 74,  30, 192, 0.28),
+        0 12px 10px rgba( 50,  16, 168, 0.48),
+        0  0  24px  rgba(188, 138, 255, 0.55),
+        0  0  62px  rgba(158, 100, 255, 0.35),
+        0  0 125px  rgba(125,  65, 235, 0.18);
+}
+
+.hero-title::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 130%;
+    height: 320%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at center,
+        rgba(148, 88, 252, 0.20) 0%,
+        rgba(108, 52, 218, 0.10) 42%,
+        transparent 68%
+    );
+    filter: blur(18px);
+    pointer-events: none;
+    z-index: -1;
+    will-change: opacity;
+    animation: title-aura 5.6s ease-in-out infinite alternate;
+}
+
+@keyframes title-aura {
+    from { opacity: 0.36; }
+    to   { opacity: 1.00; }
+}
+
+/* Hero subtitle — whisper of glow */
+.hero-sub {
+    text-shadow: 0 0 22px rgba(145, 95, 255, 0.10);
+}
+
+/* Hero content — deep nebula pool breathes behind the title */
+.hero-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 920px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at center,
+        rgba(100, 50, 210, 0.14) 0%,
+        rgba(70, 28, 158, 0.08) 36%,
+        rgba(35, 12, 88, 0.04) 60%,
+        transparent 80%
+    );
+    filter: blur(44px);
+    pointer-events: none;
+    z-index: -1;
+    animation: hero-nebula 9.2s ease-in-out infinite alternate;
+}
+
+@keyframes hero-nebula {
+    from { opacity: 0.48; transform: translate(-50%, -50%) scale(0.93); }
+    to   { opacity: 1.00; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* Hero content — wormhole accretion disk revolves behind the title */
+.hero-content::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 680px;
+    height: 680px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        rgba(122, 62, 252, 0.05) 14%,
+        rgba(162, 102, 255, 0.10) 29%,
+        rgba(122, 62, 252, 0.05) 44%,
+        transparent 57%,
+        rgba(74, 34, 182, 0.03) 74%,
+        transparent 100%
+    );
+    border-radius: 50%;
+    filter: blur(22px);
+    pointer-events: none;
+    z-index: -1;
+    animation: hero-disk 27s linear infinite;
+}
+
+@keyframes hero-disk {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* will-change hints — keep animated elements on their own compositor layers */
+.hero-atmosphere {
+    will-change: transform, opacity;
+}
+
+.hero-content {
+    will-change: transform, opacity;
+}
+
+.hero-content::before,
+.hero-content::after {
+    will-change: transform, opacity;
+}
+
+/* Product cards — opacity-animated ::before is compositor-safe vs box-shadow */
+.card-img::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: 2;
+    pointer-events: none;
+    box-shadow: inset 0 0 32px rgba(106, 56, 220, 0.22);
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 0.5s ease;
+}
+
+.card:hover .card-img::before {
+    opacity: 1;
+}
+
+/* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
 
@@ -719,6 +950,8 @@ a {
 
 @media (max-width: 960px) {
     .nav-links { display: none; }
+    .nav-util  { display: none; }
+    .nav-hamburger { display: flex; }
 
     .grid-2 { grid-template-columns: 1fr; }
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -766,3 +999,71 @@ a {
 
     .cat-inner { padding: 0 20px; }
 }
+
+/* ── HERO — white / black landing ───────────────────────────────── */
+.hero { background: #fff; }
+
+#stars-canvas,
+.hero-atmosphere,
+.hero-title::before,
+.hero-content::before,
+.hero-content::after { display: none; }
+
+.hero-title {
+    color: #0a0a0a;
+    text-shadow: none;
+    /* blurs into focus — starts visible, not from opacity 0 */
+    animation: hero-focus-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+}
+
+@keyframes hero-focus-in {
+    from { filter: blur(14px); }
+    to   { filter: blur(0); }
+}
+
+.hero-eyebrow { color: rgba(10, 10, 10, 0.36); }
+
+.hero-sub { color: rgba(10, 10, 10, 0.46); text-shadow: none; }
+
+.hero-cta {
+    color: #0a0a0a;
+    border-bottom-color: rgba(10, 10, 10, 0.16);
+}
+
+.hero-cta:hover {
+    color: rgba(10, 10, 10, 0.5);
+    border-bottom-color: rgba(10, 10, 10, 0.06);
+}
+
+.scroll-label { color: rgba(10, 10, 10, 0.26); }
+
+.scroll-line {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.12), transparent);
+}
+
+/* Gradient bridge — white hero dissolves into dark shop */
+.hero-to-dark {
+    height: 32vh;
+    min-height: 100px;
+    background: linear-gradient(to bottom, #fff 0%, #04040c 100%);
+}
+
+/* Nav text inverts while over the white hero */
+.nav.reveal-mode .nav-brand,
+.nav.reveal-mode .nav-links a,
+.nav.reveal-mode .nav-util a {
+    color: rgba(10, 10, 10, 0.5);
+    transition: color 0.3s ease;
+}
+
+.nav.reveal-mode .nav-brand:hover,
+.nav.reveal-mode .nav-links a:hover,
+.nav.reveal-mode .nav-util a:hover {
+    color: rgba(10, 10, 10, 0.88);
+}
+
+.nav.reveal-mode .nav-hamburger span {
+    background: rgba(10, 10, 10, 0.6);
+}
+
+
