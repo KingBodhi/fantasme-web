@@ -71,22 +71,19 @@ export function initHeroScroll(heroEl: HTMLElement, hero: HeroScene): HeroScroll
   // the time the camera is well inside the bright room.
   tl.to(proxy, { logoOpacity: 1.0, duration: 0.30, ease: 'sine.in' }, 0.05);
 
-  // ── DOM overlay choreography.
-  const hintEl = document.querySelector<HTMLElement>('[data-scroll-hint]');
-  const chapterHintEl = document.querySelector<HTMLElement>('[data-chapter-hint]');
-  const chapterLeftEl = document.querySelector<HTMLElement>('[data-chapter-left]');
-  const chapterRightEl = document.querySelector<HTMLElement>('[data-chapter-right]');
+  // ── DOM overlay choreography ─────────────────────────────────
+  const hintEl  = document.querySelector<HTMLElement>('[data-scroll-hint]');
+  const endUiEl = document.querySelector<HTMLElement>('[data-hero-end-ui]');
+
+  // Scroll hint fades out as soon as user starts scrolling
   if (hintEl) {
     tl.to(hintEl, { opacity: 0, duration: 0.06, ease: 'sine.out' }, 0.04);
   }
-  if (chapterHintEl) {
-    tl.to(chapterHintEl, { opacity: 1, duration: 0.12, ease: 'sine.in' }, 0.82);
-  }
-  if (chapterLeftEl) {
-    tl.to(chapterLeftEl, { opacity: 1, duration: 0.12, ease: 'sine.in' }, 0.85);
-  }
-  if (chapterRightEl) {
-    tl.to(chapterRightEl, { opacity: 1, duration: 0.12, ease: 'sine.in' }, 0.85);
+
+  // End-state UI fades in only at the very end of the scroll animation
+  if (endUiEl) {
+    tl.to(endUiEl, { opacity: 1, duration: 0.10, ease: 'sine.in' }, 0.88);
+    tl.call(() => endUiEl.classList.add('is-visible'), [], 0.95);
   }
 
   return {

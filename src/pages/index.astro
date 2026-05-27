@@ -4,5 +4,325 @@ import Hero from '../components/Hero/Hero.astro';
 ---
 
 <Base title="FANTASME⁺">
+  <link slot="head" rel="stylesheet" href="/css/home.css" />
+
+  <style>
+    /* Nav is invisible until the user scrolls past the hero */
+    .nav {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease, background 0.5s ease, border-color 0.5s ease;
+    }
+    .nav.post-hero {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Solid black wall behind all post-hero content so
+       the fixed Three.js canvas never shows through */
+    .shop-layer {
+      position: relative;
+      z-index: 2;
+      background: #04040c;
+    }
+
+    /* Bridge gradient sits just above the canvas */
+    .hero-bridge {
+      position: relative;
+      z-index: 2;
+      height: 32vh;
+      min-height: 80px;
+      background: linear-gradient(to bottom, transparent, #04040c);
+      pointer-events: none;
+    }
+  </style>
+
+  <!-- ─── THREE.JS HERO ─────────────────────────────────────────── -->
   <Hero />
+
+  <!-- ─── GRADIENT BRIDGE ───────────────────────────────────────── -->
+  <div class="hero-bridge"></div>
+
+  <!-- ─── STICKY NAV (hidden until post-hero) ──────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/#shop" class="nav-brand">FANTASME<sup>+</sup></a>
+      <ul class="nav-links">
+        <li><a href="/new">New</a></li>
+        <li><a href="/collections">Collections</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="/archive.html">Archive</a></li>
+        <li><a href="/lookbook.html">Lookbook</a></li>
+      </ul>
+      <div class="nav-util">
+        <a href="/search" class="nav-search">Search</a>
+        <a href="/cart" class="nav-cart">Cart (0)</a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE NAV DRAWER ────────────────────────────────────── -->
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <div class="nav-mobile-inner">
+      <a href="/new">New</a>
+      <a href="/collections">Collections</a>
+      <a href="#shop">Shop</a>
+      <a href="/archive.html">Archive</a>
+      <a href="/lookbook.html">Lookbook</a>
+      <div class="nav-mobile-divider"></div>
+      <a href="/search">Search</a>
+      <a href="/cart">Cart (0)</a>
+    </div>
+  </div>
+
+  <!-- ─── ALL SHOP CONTENT — solid black layer ─────────────────── -->
+  <div class="shop-layer">
+
+    <div class="marquee-band">
+      <div class="marquee-track">
+        <span>Drop 001 — Now Available</span><span class="sep">—</span>
+        <span>SS26 Collection</span><span class="sep">—</span>
+        <span>Free Shipping Over $250</span><span class="sep">—</span>
+        <span>Limited Edition</span><span class="sep">—</span>
+        <span>Drop 001 — Now Available</span><span class="sep">—</span>
+        <span>SS26 Collection</span><span class="sep">—</span>
+        <span>Free Shipping Over $250</span><span class="sep">—</span>
+        <span>Limited Edition</span><span class="sep">—</span>
+      </div>
+    </div>
+
+    <div class="cat-bar">
+      <div class="cat-inner">
+        <a href="#" class="cat active" data-filter="all">All</a>
+        <a href="#" class="cat" data-filter="tees">Graphic Tees</a>
+        <a href="#" class="cat" data-filter="tops">Tops</a>
+        <a href="#" class="cat" data-filter="outerwear">Outerwear</a>
+        <a href="#" class="cat" data-filter="bottoms">Bottoms</a>
+        <a href="#" class="cat" data-filter="skirts">Skirts</a>
+        <a href="/archive.html" class="cat">Archive</a>
+      </div>
+    </div>
+
+    <section class="section shop" id="shop">
+      <div class="section-head">
+        <span class="section-label">Shop</span>
+        <span class="section-count" id="shop-count">25 Items</span>
+      </div>
+      <div class="grid-4" id="shop-grid">
+
+        <!-- GRAPHIC TEES -->
+        <a href="/product.html?id=fever" class="card" data-category="tees">
+          <div class="card-img"><img src="/assets/img/tee-fever.jpg" alt="Fever" loading="lazy"></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Fever</span><span class="card-sub">Washed Slate</span></div><span class="card-price">$485</span></div>
+        </a>
+        <a href="/product.html?id=black-rite" class="card" data-category="tees">
+          <div class="card-img"><img src="/assets/img/tee-black-rite.jpg" alt="Black Rite" loading="lazy"></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Black Rite</span><span class="card-sub">Washed Black</span></div><span class="card-price">$475</span></div>
+        </a>
+        <a href="/product.html?id=unidentified" class="card" data-category="tees">
+          <div class="card-img"><img src="/assets/img/tee-unidentified.jpg" alt="Unidentified" loading="lazy"><span class="card-badge">New</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Unidentified</span><span class="card-sub">White</span></div><span class="card-price">$455</span></div>
+        </a>
+        <a href="/product.html?id=the-subject" class="card" data-category="tees">
+          <div class="card-img"><img src="/assets/img/tee-subject.jpg" alt="The Subject" loading="lazy"><span class="card-badge">New</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">The Subject</span><span class="card-sub">Washed Plum</span></div><span class="card-price">$495</span></div>
+        </a>
+
+        <!-- TOPS -->
+        <a href="/product.html?id=polo-marilyn" class="card" data-category="tops">
+          <div class="card-img"><img src="/assets/img/polo-marilyn.jpg" alt="The Icon" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">The Icon</span><span class="card-sub">Midnight Black</span></div><span class="card-price">$625</span></div>
+        </a>
+        <a href="/product.html?id=shirt-collage" class="card" data-category="tops">
+          <div class="card-img"><img src="/assets/img/shirt-collage.jpg" alt="World Order" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">World Order</span><span class="card-sub">Optical White</span></div><span class="card-price">$625</span></div>
+        </a>
+        <a href="/product.html?id=shirt-tiger" class="card" data-category="tops">
+          <div class="card-img"><img src="/assets/img/shirt-tiger.jpg" alt="Billie" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Billie</span><span class="card-sub">Blush / Tiger</span></div><span class="card-price">$615</span></div>
+        </a>
+        <a href="/product.html?id=shirt-cream-bow" class="card" data-category="tops">
+          <div class="card-img"><img src="/assets/img/shirt-cream-bow.jpg" alt="Curtain Call" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Curtain Call</span><span class="card-sub">Ivory / Black</span></div><span class="card-price">$645</span></div>
+        </a>
+        <a href="/product.html?id=shirt-black-bow" class="card" data-category="tops">
+          <div class="card-img"><img src="/assets/img/shirt-black-bow.jpg" alt="Séance" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Séance</span><span class="card-sub">Noir / Velvet</span></div><span class="card-price">$665</span></div>
+        </a>
+        <a href="/product.html?id=top-corset" class="card" data-category="tops">
+          <div class="card-img"><img src="/assets/img/top-corset.webp" alt="The Grip" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">The Grip</span><span class="card-sub">Structured Black</span></div><span class="card-price">$675</span></div>
+        </a>
+        <a href="/product.html?id=vest-blood" class="card" data-category="tops">
+          <div class="card-img"><img src="/assets/img/vest-blood.jpg" alt="Red Mist" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Red Mist</span><span class="card-sub">Ivory / Crimson</span></div><span class="card-price">$595</span></div>
+        </a>
+
+        <!-- OUTERWEAR -->
+        <a href="/product.html?id=jacket-cargo" class="card" data-category="outerwear">
+          <div class="card-img"><img src="/assets/img/jacket-cargo.jpg" alt="Signal" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Signal</span><span class="card-sub">Technical Bomber</span></div><span class="card-price">$1,650</span></div>
+        </a>
+        <a href="/product.html?id=blazer-glitter" class="card" data-category="outerwear">
+          <div class="card-img"><img src="/assets/img/blazer-glitter.jpg" alt="Constellation" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Constellation</span><span class="card-sub">Black Lurex</span></div><span class="card-price">$2,200</span></div>
+        </a>
+        <a href="/product.html?id=blazer-zip" class="card" data-category="outerwear">
+          <div class="card-img"><img src="/assets/img/blazer-zip.jpg" alt="The Descent" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">The Descent</span><span class="card-sub">Cropped Blazer</span></div><span class="card-price">$2,450</span></div>
+        </a>
+        <a href="/product.html?id=jacket-leather" class="card" data-category="outerwear">
+          <div class="card-img"><img src="/assets/img/jacket-leather.jpg" alt="Second Skin Leather" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Second Skin Leather</span><span class="card-sub">Distressed Leather</span></div><span class="card-price">$4,200</span></div>
+        </a>
+        <a href="/product.html?id=coat-chain" class="card" data-category="outerwear">
+          <div class="card-img"><img src="/assets/img/coat-chain.jpg" alt="The Colonel" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">The Colonel</span><span class="card-sub">Navy / Gold Chain</span></div><span class="card-price">$5,800</span></div>
+        </a>
+        <a href="/product.html?id=coat-fur" class="card" data-category="outerwear">
+          <div class="card-img"><img src="/assets/img/coat-fur.jpg" alt="Yogi Shearling Coat" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Yogi Shearling Coat</span><span class="card-sub">Sable / Cream</span></div><span class="card-price">$8,500</span></div>
+        </a>
+
+        <!-- BOTTOMS -->
+        <a href="/product.html?id=jeans-wax" class="card" data-category="bottoms">
+          <div class="card-img"><img src="/assets/img/jeans-wax.jpg" alt="Lacquer" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Vulture Waxed Denim</span><span class="card-sub">Waxed Black</span></div><span class="card-price">$825</span></div>
+        </a>
+        <a href="/product.html?id=jeans-straight" class="card" data-category="bottoms">
+          <div class="card-img"><img src="/assets/img/jeans-straight.webp" alt="Blueprint" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Blueprint Denim</span><span class="card-sub">Medium Wash</span></div><span class="card-price">$795</span></div>
+        </a>
+        <a href="/product.html?id=pants-flare" class="card" data-category="bottoms">
+          <div class="card-img"><img src="/assets/img/pants-flare.jpg" alt="Frequency" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Flare Denim</span><span class="card-sub">Black Flare</span></div><span class="card-price">$815</span></div>
+        </a>
+        <a href="/product.html?id=pants-leather" class="card" data-category="bottoms">
+          <div class="card-img"><img src="/assets/img/pants-leather.jpg" alt="Phantom Leg" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Phantom Leather</span><span class="card-sub">Leather Flare</span></div><span class="card-price">$1,850</span></div>
+        </a>
+        <a href="/product.html?id=pants-silver" class="card" data-category="bottoms">
+          <div class="card-img"><img src="/assets/img/pants-silver.jpg" alt="Static Trousers" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Static Trousers</span><span class="card-sub">Silver Metallic</span></div><span class="card-price">$1,450</span></div>
+        </a>
+        <a href="/product.html?id=pants-teal" class="card" data-category="bottoms">
+          <div class="card-img"><img src="/assets/img/pants-teal.jpg" alt="Transmission" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Disco Leather</span><span class="card-sub">Ice Blue Leather</span></div><span class="card-price">$1,950</span></div>
+        </a>
+
+        <!-- SKIRTS -->
+        <a href="/product.html?id=skirt-pleated" class="card" data-category="skirts">
+          <div class="card-img"><img src="/assets/img/skirt-pleated.jpg" alt="The Formation" loading="lazy" class="img--fit"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">The Formation</span><span class="card-sub">Pleated Mini</span></div><span class="card-price">$595</span></div>
+        </a>
+        <a href="/product.html?id=skirt-velvet" class="card" data-category="skirts">
+          <div class="card-img"><img src="/assets/img/skirt-velvet.jpg" alt="Dark Matter" loading="lazy"><span class="card-badge">Limited</span></div>
+          <div class="card-foot"><div class="card-meta"><span class="card-name">Dark Matter</span><span class="card-sub">Navy / Burgundy</span></div><span class="card-price">$785</span></div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="editorial">
+      <div class="editorial-split">
+        <div class="editorial-visual">
+          <img src="/assets/img/tee-black-rite.jpg" alt="Black Rite" class="editorial-photo" loading="lazy">
+          <div class="editorial-nebula"></div>
+        </div>
+        <div class="editorial-copy">
+          <span class="editorial-tag">The World</span>
+          <h2 class="editorial-heading">Beyond<br>the Surface</h2>
+          <p class="editorial-body">Each piece is excavated from forgotten record — newspaper archives, classified footage, redacted testimony. We wear what they buried.</p>
+          <a href="#" class="editorial-cta">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-logo">FANTASME<sup>+</sup></span>
+          <span class="footer-copy">© 2026 All rights reserved</span>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="col-head">Shop</span>
+            <a href="#">New Arrivals</a>
+            <a href="#">Collections</a>
+            <a href="/archive.html">Archive</a>
+            <a href="#">All Products</a>
+          </div>
+          <div class="footer-col">
+            <span class="col-head">Info</span>
+            <a href="#">About</a>
+            <a href="#">Stockists</a>
+            <a href="#">Shipping &amp; Returns</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="footer-col">
+            <span class="col-head">Follow</span>
+            <a href="#">Instagram</a>
+            <a href="/waitlist.html">Newsletter</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- /.shop-layer -->
+
+  <!-- home.js handles nav sticky + category filtering -->
+  <script is:inline src="/js/home.js"></script>
+
+  <script is:inline>
+    // If navigated here via /#shop (e.g. clicking logo from another page),
+    // immediately jump to the shop section without replaying the animation.
+    if (window.location.hash === '#shop') {
+      var shopEl = document.getElementById('shop');
+      if (shopEl) {
+        requestAnimationFrame(function () {
+          shopEl.scrollIntoView({ behavior: 'instant' });
+        });
+      }
+    }
+  </script>
+
+  <script is:inline>
+    // On this page the nav is hidden during the 600vh hero animation.
+    // Use inline styles (highest specificity) so home.js class toggling can't bleed through.
+    (function () {
+      var nav = document.getElementById('nav');
+      if (!nav) return;
+
+      // Hide immediately — before any paint — so the nav never flashes
+      nav.style.opacity = '0';
+      nav.style.pointerEvents = 'none';
+      nav.style.transition = 'opacity 0.5s ease';
+
+      var HERO_HEIGHT = window.innerHeight * 6;
+
+      function updateNav() {
+        var past = window.scrollY >= HERO_HEIGHT * 0.9;
+        if (past) {
+          nav.style.opacity = '';
+          nav.style.pointerEvents = '';
+        } else {
+          nav.style.opacity = '0';
+          nav.style.pointerEvents = 'none';
+        }
+        nav.classList.toggle('post-hero', past);
+        nav.classList.toggle('stuck', past && window.scrollY > HERO_HEIGHT);
+        nav.classList.remove('reveal-mode');
+      }
+
+      window.addEventListener('scroll', updateNav, { passive: true });
+      window.addEventListener('resize', function () {
+        HERO_HEIGHT = window.innerHeight * 6;
+        updateNav();
+      }, { passive: true });
+      updateNav();
+    })();
+  </script>
 </Base>

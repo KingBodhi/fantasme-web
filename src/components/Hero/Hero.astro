@@ -6,46 +6,56 @@ import '../../styles/hero.css';
   <canvas class="hero-stage__canvas" data-hero-canvas></canvas>
 
   <div class="hero-stage__overlay">
-    <nav class="hero-stage__nav" aria-label="Top navigation">
-      <a href="/lookbook.html">Lookbook</a>
-      <a href="/waitlist.html">Waitlist</a>
-    </nav>
 
-    <div class="hero-stage__hint" data-scroll-hint>↓ Scroll to enter ↓</div>
+    <!-- Visible only at animation start — fades out on first scroll -->
+    <p class="hero-stage__hint" data-scroll-hint>Scroll</p>
 
-    <!-- Horizontal-scroll placeholders, faded in at the final state. -->
-    <div class="hero-stage__chapter hero-stage__chapter--left" data-chapter-left>
-      <span class="hero-stage__chapter-arrow">←</span>
-      <span class="hero-stage__chapter-label">Lookbook</span>
+    <!-- End-state: fades in over the bright room at ~88% scroll progress -->
+    <div class="hero-stage__end-ui" data-hero-end-ui>
+
+      <!-- Transparent floating nav bar — no background, no border -->
+      <header class="hero-end-nav">
+        <a href="/#shop" class="hero-end-brand">FANTASME<sup>+</sup></a>
+        <nav class="hero-end-links">
+          <a href="/new">New</a>
+          <a href="/collections">Collections</a>
+          <a href="/#shop">Shop</a>
+          <a href="/archive.html">Archive</a>
+          <a href="/lookbook.html">Lookbook</a>
+        </nav>
+        <div class="hero-end-util">
+          <a href="/search">Search</a>
+          <a href="/cart">Cart (0)</a>
+        </div>
+      </header>
+
+      <!-- Large centered hero content -->
+      <div class="hero-end-content">
+        <div class="hero-end-wordmark">FANTASME<sup>+</sup></div>
+        <p class="hero-end-sub">The paranoia is real.</p>
+        <a href="/#shop" class="hero-end-cta">Shop Now</a>
+      </div>
+
     </div>
-    <div class="hero-stage__chapter hero-stage__chapter--right" data-chapter-right>
-      <span class="hero-stage__chapter-label">Waitlist</span>
-      <span class="hero-stage__chapter-arrow">→</span>
-    </div>
-    <div class="hero-stage__chapter-hint" data-chapter-hint>Explore chapters</div>
+
   </div>
 </div>
 
+<!-- Scroll spacer — 600vh drives the animation -->
 <section class="hero-scroll" data-hero aria-hidden="true"></section>
 
 <script>
   import { initHeroScene } from './scene';
   import { initHeroScroll } from './scroll';
 
-  const heroEl = document.querySelector<HTMLElement>('[data-hero]');
-  const canvas = document.querySelector<HTMLCanvasElement>('[data-hero-canvas]');
+  const heroEl  = document.querySelector<HTMLElement>('[data-hero]');
+  const canvas  = document.querySelector<HTMLCanvasElement>('[data-hero-canvas]');
 
   if (heroEl && canvas) {
-    const hero = initHeroScene(canvas);
+    const hero   = initHeroScene(canvas);
     const scroll = initHeroScroll(heroEl, hero);
 
-    // Track the mouse so the logo can tilt toward it — gives it a sense of
-    // mass and "floating" rather than being a flat plane.
-    window.addEventListener(
-      'mousemove',
-      (e) => hero.setMouse(e.clientX, e.clientY),
-      { passive: true },
-    );
+    window.addEventListener('mousemove', (e) => hero.setMouse(e.clientX, e.clientY), { passive: true });
 
     if (import.meta.env.DEV) {
       (window as unknown as { __hero: unknown }).__hero = { hero, scroll };

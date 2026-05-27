@@ -18,6 +18,7 @@ const { title = 'FANTASME⁺', description = 'FANTASME⁺ — SS26 Drop 001' } =
     <meta name="theme-color" content="#000000" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <slot name="head" />
   </head>
   <body>
     <slot />

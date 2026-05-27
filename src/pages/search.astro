@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Search — FANTASME⁺">
+  <link slot="head" rel="stylesheet" href="/css/home.css" />
+  <nav class="nav stuck" id="nav">
+    <div class="nav-inner">
+      <a href="/#shop" class="nav-brand">FANTASME<sup>+</sup></a>
+      <ul class="nav-links">
+        <li><a href="/new">New</a></li>
+        <li><a href="/collections">Collections</a></li>
+        <li><a href="/#shop">Shop</a></li>
+        <li><a href="/archive.html">Archive</a></li>
+        <li><a href="/lookbook.html">Lookbook</a></li>
+      </ul>
+      <div class="nav-util">
+        <a href="/search" style="opacity:1;color:var(--text)">Search</a>
+        <a href="/cart">Cart (0)</a>
+      </div>
+    </div>
+  </nav>
+  <div style="min-height:100vh;background:#04040c;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:58px;">
+    <p style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:0.36em;text-transform:uppercase;color:rgba(237,237,245,0.3);margin-bottom:32px;">Search</p>
+    <input
+      type="text"
+      placeholder="Search products..."
+      style="background:transparent;border:none;border-bottom:1px solid rgba(237,237,245,0.2);padding:10px 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:24px;font-weight:400;letter-spacing:0.08em;color:#ededf5;width:min(520px,80vw);outline:none;text-align:center;"
+    />
+    <p style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:0.2em;color:rgba(237,237,245,0.24);margin-top:20px;">Search coming soon.</p>
+  </div>
+  <script is:inline src="/js/home.js"></script>
+</Base>
