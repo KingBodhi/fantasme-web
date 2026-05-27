@@ -1,0 +1,21 @@
+:root {
+  --bg: #000;
+  --bg-deep: #04040c;
+  --surface: #080810;
+  --raised: #0d0d1a;
+  --text: #ededf5;
+  --muted: rgba(237, 237, 245, 0.44);
+  --dim: rgba(237, 237, 245, 0.18);
+  --border: rgba(255, 255, 255, 0.055);
+  --border-strong: rgba(255, 255, 255, 0.1);
+  --accent: #8060d8;
+  --crack-warm: #fff5e0;
+
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --ease-soft: cubic-bezier(0.25, 0, 0.08, 1);
+  --ease-portal: cubic-bezier(0.65, 0, 0.15, 1);
+
+  --tracking-wordmark: 0.2em;
+  --tracking-wordmark-tight: 0.18em;
+}

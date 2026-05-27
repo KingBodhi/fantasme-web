@@ -1,0 +1,54 @@
+---
+import '../../styles/hero.css';
+---
+
+<div class="hero-stage" data-hero-stage>
+  <canvas class="hero-stage__canvas" data-hero-canvas></canvas>
+
+  <div class="hero-stage__overlay">
+    <nav class="hero-stage__nav" aria-label="Top navigation">
+      <a href="/lookbook.html">Lookbook</a>
+      <a href="/waitlist.html">Waitlist</a>
+    </nav>
+
+    <div class="hero-stage__hint" data-scroll-hint>↓ Scroll to enter ↓</div>
+
+    <!-- Horizontal-scroll placeholders, faded in at the final state. -->
+    <div class="hero-stage__chapter hero-stage__chapter--left" data-chapter-left>
+      <span class="hero-stage__chapter-arrow">←</span>
+      <span class="hero-stage__chapter-label">Lookbook</span>
+    </div>
+    <div class="hero-stage__chapter hero-stage__chapter--right" data-chapter-right>
+      <span class="hero-stage__chapter-label">Waitlist</span>
+      <span class="hero-stage__chapter-arrow">→</span>
+    </div>
+    <div class="hero-stage__chapter-hint" data-chapter-hint>Explore chapters</div>
+  </div>
+</div>
+
+<section class="hero-scroll" data-hero aria-hidden="true"></section>
+
+<script>
+  import { initHeroScene } from './scene';
+  import { initHeroScroll } from './scroll';
+
+  const heroEl = document.querySelector<HTMLElement>('[data-hero]');
+  const canvas = document.querySelector<HTMLCanvasElement>('[data-hero-canvas]');
+
+  if (heroEl && canvas) {
+    const hero = initHeroScene(canvas);
+    const scroll = initHeroScroll(heroEl, hero);
+
+    // Track the mouse so the logo can tilt toward it — gives it a sense of
+    // mass and "floating" rather than being a flat plane.
+    window.addEventListener(
+      'mousemove',
+      (e) => hero.setMouse(e.clientX, e.clientY),
+      { passive: true },
+    );
+
+    if (import.meta.env.DEV) {
+      (window as unknown as { __hero: unknown }).__hero = { hero, scroll };
+    }
+  }
+</script>

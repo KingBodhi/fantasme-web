@@ -1,1 +1,19 @@
+# build
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# env
+.env
+.env.production
+
+# vercel
 .vercel
+
+# editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.log
